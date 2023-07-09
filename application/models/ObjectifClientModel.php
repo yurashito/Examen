@@ -21,7 +21,7 @@
             try{
                 if($Poids > 0){
                     if($IdObjectif == 2){
-                        if($Poids > $Poids+30){
+                        if($Poids < $Poids+30){
                             $sql1 = "Insert into ObjectifClient(IdClient,IdObjectif,ObjectifPoids) value(?,?,?)";
                             $this->db->query($sql1,array($IdClient,$IdObjectif,$Poids));
                         }else{
