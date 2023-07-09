@@ -56,3 +56,25 @@ insert into PorteMoney(IdUtilisateur,ValeurMoney) value(2,0);
 insert into PorteMoney(IdUtilisateur,ValeurMoney) value(3,0);
 insert into PorteMoney(IdUtilisateur,ValeurMoney) value(4,0);
 insert into PorteMoney(IdUtilisateur,ValeurMoney) value(5,0);
+
+
+-- --------------Donnees test
+INSERT INTO ObjectifClient (IdClient, IdObjectif, ObjectifPoids, DateInsertion)
+VALUES
+    (1, 1, 70.5, '2023-01-15 10:00:00'),
+    (2, 2, 68.2, '2023-02-22 14:30:00'),
+    (3, 1, 80.0, '2023-03-10 08:45:00'),
+    (4, 2, 75.8, '2023-04-05 17:15:00'),
+    (5, 1, 68.0, '2023-05-20 12:00:00'),
+    (1, 2, 65.5, '2023-05-28 09:30:00'),
+    (2, 1, 85.2, '2023-07-03 16:45:00'),
+    (3, 1, 82.7, '2023-07-10 11:15:00'),
+    (2, 2, 73.6, '2023-08-18 10:30:00'),
+    (1, 2, 70.8, '2023-09-05 14:00:00'),
+    (1, 2, 70.8, '2023-09-05 14:00:00'),
+    (1, 2, 70.8, '2023-09-05 14:00:00'),
+    
+    (1, 1, 70.5, '2023-01-15 10:00:00'),
+    (2, 2, 68.2, '2023-02-22 14:30:00');
+
+

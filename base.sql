@@ -98,3 +98,8 @@ create view CodeAttenteValidation as(
     join Code 
     on Code.IdCode = CodeAttente.IdCode
 );
+
+CREATE VIEW StatClient AS 
+    SELECT count(idClient) as NombreClient, DATE_FORMAT(DateInsertion, '%M') AS Mois 
+    FROM ObjectifClient GROUP BY DATE_FORMAT(DateInsertion, '%M') 
+    ORDER BY MONTH(DateInsertion);
