@@ -30,6 +30,8 @@ create table InfoUtilisateur(
     foreign key(IdUtilisateur) references  Utilisateur(IdUtilisateur)
 );
 
+insert into InfoUtilisateur(IdUtilisateur,Poids,Taille,adresse,telephone) value(1,70,160,'Vk II 21 bis','0320125410');
+
 create table PorteMoney(
     IdPorteMoney  int not null primary key,
     IdUtilisateur int not null,
@@ -46,6 +48,15 @@ create table Objectif(
 
 insert into Objectif(NomObjectif) value('Augmenter Poids'),('Diminuer Poids');
 
+create table ObjectifClient(
+    IdObjectifClient int not null primary key auto_increment,
+    DateInsertion Timestamp default now(),
+    IdClient int not null,
+    IdObjectif int not null,
+    ObjectifPoids double,
+    foreign key(IdClient) references utilisateur(IdUtilisateur),
+    foreign key(IdObjectif) references Objectif(IdObjectif)
+);
 
 -- 0 valide , 10 en attente de confirmation , 20 confirmer
 create table Code(

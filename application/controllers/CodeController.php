@@ -14,7 +14,7 @@ class CodeController extends CI_Controller {
 	public function AjouterArgent(){
 		$this->load->model('CodeFonction');
 		$this->CodeFonction->DemandeCode(1,intval($_GET['IdCode']));
-		// redirect("CodeController/index");
+		redirect("CodeController/index");
 	}
 
 }
