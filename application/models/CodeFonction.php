@@ -28,11 +28,17 @@
             $Client = $this->SelectMoneyParUtilisateur($IdClient);
             $ArgentActuelle = $Client->ValeurMoney;
             if($Code!=null){
-                if($Code->Identifiant < 10 ){
-                    $sql = "UPDATE Code SET Identifiant = 10 where IdCode=".$Code->IdCode;
-                    $sql1 = "Insert into CodeAttente(IdUtilisateur,IdCode)  value(?,?)";
-                    $this->db->query($sql);
-                    $this->db->query($sql1,array($IdClient,$Code->IdCode));
+                try {
+                    if($Code->Identifiant < 10 ){
+                        $sql = "UPDATE Code SET Identifiant = 10 where IdCode=".$Code->IdCode;
+                        $sql1 = "Insert into CodeAttente(IdUtilisateur,IdCode)  value(?,?)";
+                        $this->db->query($sql);
+                        $this->db->query($sql1,array($IdClient,$Code->IdCode));
+                    }else {
+                        throw new Exception("Code non valide");
+                    }
+                } catch (Exception $e) {
+                    show_error($e->getMessage());
                 }
             }
         }
@@ -42,8 +48,7 @@
             $Client = $this->SelectMoneyParUtilisateur($IdClient);
             $ArgentActuelle = $Client->ValeurMoney;
             if($Code!=null){
-                echo $Code->Identifiant;
-                if($Code->Identifiant >=10 && $Code->Identifiant< 20 ){
+                if($Code->Identifiant >= 10 && $Code->Identifiant < 20 ){
                     $sql1 = "UPDATE Code SET Identifiant = 20 where IdCode=".$Code->IdCode;
                     $Vola = $ArgentActuelle + $Code->MontantCode;
                     $sql = "UPDATE PorteMoney SET ValeurMoney = ? WHERE idUtilisateur = ?";
