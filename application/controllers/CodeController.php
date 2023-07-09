@@ -17,4 +17,16 @@ class CodeController extends CI_Controller {
 		redirect("CodeController/index");
 	}
 
+	public function ValiderCode(){
+		$this->load->model('CodeFonction');
+		$Tab['CodeAttente'] = $this->CodeFonction->SelectCodeEnAttenteValidation();
+		$this->load->view('ValidationCode',$Tab);
+	}
+
+	public function Valider(){
+		$this->load->model('CodeFonction');
+		$this->CodeFonction->ConfirmationCode($_GET['IdClient'],$_GET['ValeurCode']);
+	}
+
+
 }

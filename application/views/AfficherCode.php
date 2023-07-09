@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <form action="<?php echo base_url('CodeController/AjouterArgent') ?>">
+    <form action="<?php echo base_url('CodeController/AjouterArgent') ?>" method="get">
         <input type="number" name="IdCode">
         <input type="submit" value="Acheter">
     </form>

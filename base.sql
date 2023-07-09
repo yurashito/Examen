@@ -6,8 +6,6 @@ create table genre(
     Valeur varchar(50)
 );
 
-insert into genre value(0,'Homme'),(1,'Femme');
-
 create table utilisateur(
     idUtilisateur int not null auto_increment primary key ,
     nom varchar(20),
@@ -18,7 +16,6 @@ create table utilisateur(
     foreign key(genre) references genre(idGenre)
 );
 
-insert into utilisateur(nom,prenom,genre,mail,mdp) value('Razafinjatovo','Diary',1,'Diary@gmail.com',0000);
 
 create table InfoUtilisateur(
     IdInfoUtilisateur int not null primary key auto_increment,
@@ -33,7 +30,7 @@ create table InfoUtilisateur(
 insert into InfoUtilisateur(IdUtilisateur,Poids,Taille,adresse,telephone) value(1,70,160,'Vk II 21 bis','0320125410');
 
 create table PorteMoney(
-    IdPorteMoney  int not null primary key,
+    IdPorteMoney  int not null primary key auto_increment,
     IdUtilisateur int not null,
     ValeurMoney double,
     foreign key(IdUtilisateur) references utilisateur(idUtilisateur)
@@ -61,9 +58,9 @@ create table ObjectifClient(
 -- 0 valide , 10 en attente de confirmation , 20 confirmer
 create table Code(
     IdCode int not null primary key auto_increment,
-    ValeurCode double,
+    ValeurCode double unique,
     MontantCode double,
-    Identifiant int
+    Identifiant int default 0
 );
 
 create table CodeAttente(
@@ -81,16 +78,6 @@ create table Aliment(
     Montant double,
     duree double 
 );
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Riz aux légumes ', 0.4, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Pâtes à la carbonara', 0.3, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Steak avec frites et salade', 0.6, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Pizza avec fromage', 0.8,20000.0, 300);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Brocoli', -0.2, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Thon en conserve', -0.15, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Yaourt grec sans gras', -0.1, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Chou-fleur', -0.3, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Blanc de poulet grillé', -0.25, 20000.0, 1);
-
 
 create table Sport(
     Id int  not null primary key auto_increment,
@@ -100,11 +87,14 @@ create table Sport(
     NbrJours double
 );
 
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Course à pied', -0.5, 30.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Natation', 0.7, 45.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Haltérophilie', 0.4, 60.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Yoga', 0.2, 60.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Cyclisme', 1, 90.0, 1);
-
-
 insert into Sport values(null , 'basket' , -1.5 , 38 , 1);
+
+
+-- -------------------------View
+create view CodeAttenteValidation as(
+    select utilisateur.idUtilisateur,code.IdCode,utilisateur.nom,ValeurCode,MontantCode 
+    from Utilisateur join codeAttente 
+    on codeAttente.IdUtilisateur=utilisateur.idUtilisateur 
+    join Code 
+    on Code.IdCode = CodeAttente.IdCode
+);

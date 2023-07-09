@@ -48,14 +48,22 @@
             $Client = $this->SelectMoneyParUtilisateur($IdClient);
             $ArgentActuelle = $Client->ValeurMoney;
             if($Code!=null){
-                if($Code->Identifiant >= 10 && $Code->Identifiant < 20 ){
+                if($Code->Identifiant == 10 ){
                     $sql1 = "UPDATE Code SET Identifiant = 20 where IdCode=".$Code->IdCode;
                     $Vola = $ArgentActuelle + $Code->MontantCode;
                     $sql = "UPDATE PorteMoney SET ValeurMoney = ? WHERE idUtilisateur = ?";
+                    $sql2 = "DELETE from CodeAttente where IdUtilisateur = ? and IdCode = ? ";
                     $this->db->query($sql, array($Vola, $IdClient));
                     $this->db->query($sql1);
+                    $this->db->query($sql2, array($IdClient, $Code->IdCode));
                 }
             }
+        }
+
+        function SelectCodeEnAttenteValidation(){
+            $sql = $this->db->query("SELECT * from CodeAttenteValidation");
+            $tableau = $sql->result_array();
+            return $tableau;
         }
     }
 ?>
