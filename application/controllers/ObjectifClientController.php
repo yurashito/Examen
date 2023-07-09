@@ -8,7 +8,7 @@ class ObjectifClientController extends CI_Controller {
 	{
         $this->load->model('ObjectifClientModel');
 		$Tab['Objectif'] = $this->ObjectifClientModel->SelectObjectif();
-		$this->load->view('ObjectifClient',$Tab);
+		$this->load->view('infoUtilisateur',$Tab);
 	}	
 
     public function InsererObjectif(){
