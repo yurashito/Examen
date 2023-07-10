@@ -61,7 +61,11 @@
         }
 
         function SelectCodeEnAttenteValidation(){
-            $sql = $this->db->query("SELECT * from CodeAttenteValidation");
+            $sql = $this->db->query("select utilisateur.idUtilisateur,code.IdCode,utilisateur.nom,ValeurCode,MontantCode 
+            from Utilisateur join codeAttente 
+            on codeAttente.IdUtilisateur=utilisateur.idUtilisateur 
+            join Code 
+            on Code.IdCode = CodeAttente.IdCode");
             $tableau = $sql->result_array();
             return $tableau;
         }

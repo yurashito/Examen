@@ -49,7 +49,7 @@ class AdminController extends CI_Controller {
     }
 
     public function SupprimerSport(){
-        $this->load->model('AdminModel');
+        $this->loa00d->model('AdminModel');
         $this->AdminModel->SupprimerSport($_GET['IdSport']);
         $this->AfficherSport();
     }

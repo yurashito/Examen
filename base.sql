@@ -89,15 +89,15 @@ create table Sport(
 
 
 -- -------------------------View
-create view CodeAttenteValidation as(
-    select utilisateur.idUtilisateur,code.IdCode,utilisateur.nom,ValeurCode,MontantCode 
-    from Utilisateur join codeAttente 
-    on codeAttente.IdUtilisateur=utilisateur.idUtilisateur 
-    join Code 
-    on Code.IdCode = CodeAttente.IdCode
-);
+-- create view CodeAttenteValidation as(
+--     select utilisateur.idUtilisateur,code.IdCode,utilisateur.nom,ValeurCode,MontantCode 
+--     from Utilisateur join codeAttente 
+--     on codeAttente.IdUtilisateur=utilisateur.idUtilisateur 
+--     join Code 
+--     on Code.IdCode = CodeAttente.IdCode
+-- );
 
-CREATE VIEW StatClient AS 
-    SELECT count(idClient) as NombreClient, DATE_FORMAT(DateInsertion, '%M') AS Mois 
-    FROM ObjectifClient GROUP BY DATE_FORMAT(DateInsertion, '%M') 
-    ORDER BY MONTH(DateInsertion);
+-- CREATE VIEW StatClient AS 
+--     SELECT count(idClient) as NombreClient, DATE_FORMAT(DateInsertion, '%M') AS Mois 
+--     FROM ObjectifClient GROUP BY DATE_FORMAT(DateInsertion, '%M') 
+--     ORDER BY MONTH(DateInsertion);
