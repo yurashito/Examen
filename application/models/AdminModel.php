@@ -3,11 +3,11 @@
 
     class AdminModel extends CI_Model
     {
-        public function InsererAliment($Nom,$Poids,$Montant){
+        public function InsererAliment($Nom,$Poids,$Montant,$viande,$poisson,$volaille){
             try{
                 if($Montant >= 100 && $Nom != null && $Poids != 0){
-                    $sql = "Insert into Aliment(Nom, Poids, Montant) value(?,?,?)";
-                    $this->db->query($sql,array($Nom,$Poids,$Montant));
+                    $sql = "Insert into Aliment(Nom, Poids, Montant , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) value(?,?,?,?,?,?)";
+                    $this->db->query($sql,array($Nom,$Poids,$Montant,$viande,$poisson,$volaille));
                 }else{
                     throw new Exception("Insertion qui ne suit pas les normes");
                 }
@@ -33,9 +33,11 @@
             return $tableau;
         }
 
-        public function Modifier($IdAliment,$Nom,$Poids,$Montant){
-            $sql = "UPDATE Aliment SET Nom = ? , Poids = ? , Montant = ? where Id=".$IdAliment;
-            $this->db->query($sql,array($Nom,$Poids,$Montant)); 
+        public function Modifier($IdAliment,$Nom,$Poids,$Montant,$viande,$poisson,$volaille){
+            if($viande >= 0 and $viande <= 100 and $poisson >= 0 and $poisson <= 100 and $volaille >= 0 and $volaille <= 100 ){
+                $sql = "UPDATE Aliment SET Nom = ? , Poids = ? , Montant = ? ,PourcentageViande = ? , PourcentagePoisson = ? , PourcentageVolaille = ? where Id=".$IdAliment;
+                $this->db->query($sql,array($Nom,$Poids,$Montant,$viande,$poisson,$volaille)); 
+            }
         }
 
 // --------------------------------Sport

@@ -12,6 +12,9 @@
             <p>Nom:<input type="text" name="Nom" value="<?php echo $aliment['Nom'] ?>"></p>
             <p>Poids:<input type="text" name="Poids" value="<?php echo $aliment['Poids'] ?>"></p>
             <p>Montant:<input type="number" name="Montant" value="<?php echo $aliment['Montant'] ?>"></p>
+            <p>Pourcentage de viande:<input type="number" name="viande" value="<?php echo $aliment['PourcentageViande'] ?>"></p>
+            <p>Pourcentage de poisson:<input type="number" name="poisson" value="<?php echo $aliment['PourcentagePoisson'] ?>"></p>
+            <p>Pourcentage de volaille:<input type="number" name="volaille" value="<?php echo $aliment['PourcentageVolaille'] ?>"></p>
             <p><input type="hidden" name="IdAliment" value="<?php echo $aliment['Id'] ?>"></p>
             <p><input type="submit" value="Modifier"></p>
         </form>

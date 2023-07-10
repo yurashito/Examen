@@ -13,7 +13,7 @@ class AdminController extends CI_Controller {
     
     public function InsererAliment(){
         $this->load->model('AdminModel');
-		$this->AdminModel->InsererAliment($_GET["Nom"],$_GET["Poids"],$_GET["Montant"]);
+		$this->AdminModel->InsererAliment($_GET["Nom"],$_GET["Poids"],$_GET["Montant"],$_GET['viande'],$_GET['poisson'],$_GET['volaille']);
 		$this->index();
     }
 
@@ -31,7 +31,7 @@ class AdminController extends CI_Controller {
 
     public function Modifier(){
         $this->load->model('AdminModel');
-        $this->AdminModel->Modifier($_GET['IdAliment'],$_GET['Nom'],$_GET['Poids'],$_GET['Montant']);
+        $this->AdminModel->Modifier($_GET['IdAliment'],$_GET['Nom'],$_GET['Poids'],$_GET['Montant'],$_GET['viande'],$_GET['poisson'],$_GET['volaille']);
         redirect('AdminController/index');
     }
 

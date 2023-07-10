@@ -11,6 +11,9 @@
         <p>Nom:<input type="text" name="Nom" ></p>
         <p>Poids:<input type="text" name="Poids" ></p>
         <p>Montant:<input type="number" name="Montant" ></p>
+        <p>Pourcentage viande: <input type="number" name="viande" id=""></p>
+        <p>Pourcentage viande: <input type="number" name="poisson" id=""></p>
+        <p>Pourcentage viande: <input type="number" name="volaille" id=""></p>
         <p><input type="submit" value="Inserer"></p>
     </form>
 
@@ -20,6 +23,9 @@
             <th>Poids gagner ou perdu</th>
             <th>Montant</th>
             <th>Duree</th>
+            <th>Pourcentage de viande</th>
+            <th>Pourcentage de poisson</th>
+            <th>Pourcentage de volaille</th>
             <th>Supprimer</th>
             <th>Modifier</th>
         </tr>
@@ -29,6 +35,9 @@
                 <td><?php echo $aliment['Poids'] ?></td>
                 <td><?php echo $aliment['Montant'] ?></td>
                 <td><?php echo $aliment['duree'] ?></td>
+                <td><?php echo $aliment['PourcentageViande'] ?></td>
+                <td><?php echo $aliment['PourcentagePoisson'] ?></td>
+                <td><?php echo $aliment['PourcentageVolaille'] ?></td>
                 <td><a href="<?php echo base_url("AdminController/SupprimerAliment") ?>?IdAliment=<?php echo $aliment['Id'] ?>">Supprimer</a></td>
                 <td><a href="<?php echo base_url("AdminController/MoidifierAliment") ?>?IdAliment=<?php echo $aliment['Id'] ?>">Modifier</a></td>
             </tr>

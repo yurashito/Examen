@@ -76,7 +76,10 @@ create table Aliment(
     Nom varchar(30),
     Poids double,
     Montant double,
-    duree double default 1
+    duree double default 1,
+    PourcentageViande double,
+    PourcentagePoisson double,
+    PourcentageVolaille double
 );
 
 create table Sport(

@@ -9,19 +9,19 @@ VALUES
     ('Rakotomalala', 'Andry', 0, 'andry.rakotomalala@gmail.com', 0000);
 
 ---------------------- Aliment et sport
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Riz aux légumes ', 0.4, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Pâtes à la carbonara', 0.3, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Steak avec frites et salade', 0.6, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Pizza avec fromage', 0.8,20000.0, 300);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Brocoli', -0.2, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Thon en conserve', -0.15, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Yaourt grec sans gras', -0.1, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Chou-fleur', -0.3, 20000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Blanc de poulet grillé', -0.25, 20000.0, 1);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Riz aux légumes ', 0.4, 20000.0, 1,5,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Pâtes à la carbonara', 0.3, 20000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Steak avec frites et salade', 0.6, 20000.0, 1,70,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Pizza avec fromage', 0.8,20000.0, 300,10,30,5);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Brocoli', -0.2, 20000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Thon en conserve', -0.15, 20000.0, 1,0,70,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Yaourt grec sans gras', -0.1, 20000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Chou-fleur', -0.3, 20000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Blanc de poulet grillé', -0.25, 20000.0, 1,0,0,90);
 
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Avocat toast', 0.2, 10000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Lasagnes', 0.6, 30000.0, 1);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree) VALUES ('Smoothies protéinés', 0.5, 8000.0, 1);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Avocat toast', 0.2, 10000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Lasagnes', 0.6, 30000.0, 1,20,10,2);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Smoothies protéinés', 0.5, 8000.0, 1,0,0,0);
 
 
 INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Course à pied', -0.5, 30.0, 1);
