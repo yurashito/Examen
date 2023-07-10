@@ -62,7 +62,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="signin__form__text">
-                                <form action="#">
+                                <form action="<?php echo site_url('welcome/choixDuSport'); ?>" method="post">
                                     <input type="text" placeholder="Poids">
                                     <input type="text" placeholder="Taille">
                                     <input type="text" placeholder="numero de telephone">
@@ -74,20 +74,18 @@
                         </div>
                         <div class="tab-pane" id="tabs-2" role="tabpanel">
                             <div class="signin__form__text">
-                                <form action="<?php echo site_url('welcome/choixDuSport'); ?> " method="post">
+                                <form action="<?php echo site_url('ObjectifClientController/InsererObjectif'); ?> " method="get">
                                     <div class="row">
+                                    <?php foreach($Objectif as $Object) { ?>
                                         <h6 class="col-6">
-                                            <input style="width: 8%; height: 15px;" type="radio" name="object" id="sign-agree-check">
-                                            I agree to the terms & conditions
+                                            <input style="width: 8%; height: 15px;" type="radio" name="IdObjectif" id="sign-agree-check" value="<?php echo $Object['IdObjectif']; ?>">
+                                            <?php echo $Object['NomObjectif']; ?>
                                         </h6">
-                                        <h6 class="col-6">
-                                            <input  style="width: 8%; height: 15px;"  type="radio" name="object" id="sign-agree-check">
-                                            I agree to the terms & conditions
-                                        </h6>                                  
+                                        <?php } ?>                               
                                     </div>
                                     <div class="row">
                                         <h6 class="col-12">
-                                            <input type="number" name="poids" placeholder="Saisir le nombre de poids a augmenter ou a reduire">
+                                            <input type="number" name="Valeur" placeholder="Saisir le nombre de poids a augmenter ou a reduire">
                                         </h6>  
                                     </div>
                                     <button type="submit" class="site-btn">valider les objectifs</button>
