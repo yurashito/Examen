@@ -17,5 +17,4 @@ class ObjectifClientController extends CI_Controller {
         $this->index();
     }
 	
-
 }

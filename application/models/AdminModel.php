@@ -96,6 +96,19 @@
             }
             return null;
         }
+
+//--------------------------Tableau croisee
+        public function TableauCroisee(){
+            $sql = $this->db->query("    SELECT Objectif.NomObjectif,count(idClient) as NombreClient,
+            DATE_FORMAT(DateInsertion, '%M') AS Mois 
+            FROM ObjectifClient 
+            join Objectif on 
+            Objectif.IdObjectif = ObjectifClient.IdObjectif GROUP BY DATE_FORMAT(DateInsertion, '%M') ,
+            Objectif.IdObjectif
+            ORDER BY MONTH(DateInsertion) ");
+            $tableau = $sql->result_array();
+            return $tableau;
+        }
         
     }
 ?>
