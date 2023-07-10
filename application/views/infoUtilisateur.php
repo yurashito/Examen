@@ -77,17 +77,18 @@
                                 <form action="<?php echo site_url('welcome/choixDuSport'); ?> " method="post">
                                     <div class="row">
                                         <h6 class="col-6">
-                                            <input style="width: 8%; height: 15px;" type="checkbox" name="object[]" id="sign-agree-check">
+                                            <input style="width: 8%; height: 15px;" type="radio" name="object" id="sign-agree-check">
                                             I agree to the terms & conditions
-                                        </h6 class="col-6">
+                                        </h6">
                                         <h6 class="col-6">
-                                            <input  style="width: 8%; height: 15px;"  type="checkbox" name="object[]" id="sign-agree-check">
+                                            <input  style="width: 8%; height: 15px;"  type="radio" name="object" id="sign-agree-check">
                                             I agree to the terms & conditions
-                                        </h6 class="col-6">
-                                        <h6 class="col-6">
-                                            <input  style="width: 8%; height: 15px;"  type="checkbox" name="object[]" id="sign-agree-check">
-                                            I agree to the terms & conditions
-                                        </h6 class="col-6">                                    
+                                        </h6>                                  
+                                    </div>
+                                    <div class="row">
+                                        <h6 class="col-12">
+                                            <input type="number" name="poids" placeholder="Saisir le nombre de poids a augmenter ou a reduire">
+                                        </h6>  
                                     </div>
                                     <button type="submit" class="site-btn">valider les objectifs</button>
                                 </form>
