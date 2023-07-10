@@ -66,4 +66,10 @@ class AdminController extends CI_Controller {
         $this->AfficherSport();
     }
 
+    public function TableauCroisee(){
+        $this->load->model('AdminModel');
+        $Tab['Tableau'] = $this->AdminModel->TableauCroisee();
+        $this->load->view('TableauCroisee',$Tab);
+    }
+
 }
