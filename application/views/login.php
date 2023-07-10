@@ -13,17 +13,17 @@
           <p class="paragraphe">
             Veuillez remplir tous les champs
           </p>
-          <form class="formulaire" action="welcome/index">
+          <form class="formulaire" action="<?php echo site_url('Login/index');?>" method="post">
             <div class="group-form">
-              <input type="email" placeholder="mail">
+              <input type="email" name="email" placeholder="mail">
               <div class="icon-mail"></div>
             </div>
             <div class="group-form">
-              <input type="password" placeholder="password">
+              <input type="password" name="pass" placeholder="password">
               <div class="icon-password"></div>
             </div>
             <div class="group-form">
-              <input type="submit" class="inscription" style="background: #1f1fd1;" value="Se Connecter">
+              <input type="submit" class="btn-primary inscription" style="background: #1f1fd1;" value="Se Connecter">
             </div>
           </form>
         </div>
@@ -32,8 +32,7 @@
             <p class="paragraphe">
               Veuillez entrer vos détails personnel et démarrez votre journée sur Hellø Wørld
             </p>
-            <a href="<?php echo site_url('welcome/inscription'); ?>" class="btn-link connexion" style="color: #198EF5;font-weight: bold;">S' inscrire</a>
-          
+            <a href="<?php echo site_url('welcome/insertion'); ?>" class="btn-link connexion" style="color: #198EF5;font-weight: bold;">S' inscrire</a>         
         </div>
       </div>
 </body>

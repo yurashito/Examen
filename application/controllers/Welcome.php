@@ -22,21 +22,45 @@ class Welcome extends CI_Controller {
         parent::__construct();
         $this->load->library('session');
     }
-
-	public function index(){
+	public function index()
+	{
 		$this->load->view('login');
 	}
-
-	public function inscription(){
+	public function insertion()
+	{
 		$this->load->view('Inscription');
-	}
-	
-	public function infoUtilisateur(){
-		$this->load->view('infoUtilisateur');
-	}
-
-	public function choixDuSport(){
+	}		
+	public function  insertionInformation(){
+		$valeur = $this->session->userdata('idUtilisateur');
+        $idUtilisateur = $valeur['IdUtilisateur'];
+		$poids= $_POST['poids'];
+		$taille= $_POST['taille'];
+		$adresse=$_POST['adresse'];
+		$tel= $_POST['numero'];
+        $this->utilisateur->insertionInfo($idUtilisateur , $poids , $taille , $adresse , $tel);
 		$this->load->view('choixDuSport');
 	}
+	
+    public function inscription(){
+
+		$data = array();
+        $nom= $_POST['nom'];
+        $prenom=$_POST['prenom'];
+        $genre= $_POST['genre'];
+        $mail=$_POST['mail'];
+        $mdp=$_POST['passConf'];
+        $this->utilisateur->insertionInscription($nom , $prenom , $genre ,$mail , $mdp);
+		$user = $this->utilisateur->selectOneUser($nom);
+		$data['user'] = $user[0];
+		$this->session->set_userdata('idUtilisateur', $data);
+		$this->load->view('infoUtilisateur');   
+    }
+	public function afficheProgramme(){
+		
+		$resultat = $this-> programme->selectRegimeAdequat(1);
+		// echo $resultat ;
+		$this->load->view('afficheProgramme');
+	}
+
 
 }

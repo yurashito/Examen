@@ -20,13 +20,13 @@
           <p class="paragraphe">
             Veuillez remplir tous les champs
           </p>
-          <form class="formulaire" action="<?php echo site_url('welcome/infoUtilisateur'); ?> " method="get">
+          <form class="formulaire" action="<?php echo site_url('welcome/inscription'); ?> " method="post">
             <div class="group-form">
-              <input type="text" placeholder="Nom">
+              <input type="text" name="nom" placeholder="Nom">
               <div class="icon-user"></div>
             </div>
             <div class="group-form">
-                <input type="text" placeholder="Prenom">
+                <input type="text" name="prenom" placeholder="Prenom">
                 <div class="icon-user"></div>
             </div>
             <div class="group-form" style="min-width: 250px;">
@@ -35,21 +35,15 @@
                 <div class="icon-user"></div>
             </div>
             <div class="group-form">
-              <input type="email" placeholder="mail">
+              <input type="email" name="mail" placeholder="mail">
               <div class="icon-mail"></div>
             </div>
             <div class="group-form">
-              <input type="password" placeholder="password">
+              <input type="password" name="pass" placeholder="password">
             </div>
             <div class="group-form">
-                <input type="password" placeholder="Confirmation du mot de passe">
+                <input type="password" name="passConf" placeholder="Confirmation du mot de passe">
                 <div class="icon-password"></div>
-            </div>
-            <div class="group-form">
-                <input type="text" placeholder="Date de Naissance ../../..">
-            </div>
-            <div class="group-form">
-                <input type="text" placeholder="Numero de telephone">
             </div>
             <div class="btn group-form" style="margin-left: 60%;">
               <input type="submit" class="inscription" value="S'inscrire">

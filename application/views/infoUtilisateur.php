@@ -62,11 +62,11 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="signin__form__text">
-                                <form action="<?php echo site_url('welcome/choixDuSport'); ?>" method="post">
-                                    <input type="text" placeholder="Poids">
-                                    <input type="text" placeholder="Taille">
-                                    <input type="text" placeholder="numero de telephone">
-                                    <input type="text" placeholder="Adresses">
+                                <form action="<?php echo site_url('welcome/insertionInformation'); ?>" method="post">
+                                    <input type="text" name="poids" placeholder="Poids">
+                                    <input type="text" name="taille" placeholder="Taille">
+                                    <input type="text" name="numero" placeholder="numero de telephone">
+                                    <input type="text" name="adresse" placeholder="Adresses">
                                     
                                     <button type="submit" class="site-btn">valider</button>
                                 </form>

@@ -61,7 +61,7 @@
                                 I agree to the terms & conditions
                             </label>
                             <br>
-                            <a href="#" id="read-more-btn-1" class="primary-btn">Read more</a>
+                            <a href="#" onclick="openModal()" id="read-more-btn-1" class="primary-btn">Read more</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
@@ -79,7 +79,7 @@
                                 I agree to the terms & conditions
                             </label>
                             <br>
-                            <a href="#" id="read-more-btn-2" class="primary-btn">Read more</a>
+                            <a href="#" onclick="openModal()" id="read-more-btn-2" class="primary-btn">Read more</a>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-4">
@@ -97,13 +97,65 @@
                                 I agree to the terms & conditions
                             </label>
                             <br>
-                            <a href="#" id="read-more-btn-3" class="primary-btn">Read more</a>
+                            <a href="#" onclick="openModal()" id="read-more-btn-3" class="primary-btn">Read more</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <style>
+        .modal-content{
+            background:radial-gradient(rgb(14, 14, 14),rgb(0, 0, 0)) ; 
+            max-width: 35%;
+            margin-left: 35%;
+            text-align: center;
+        }
+    </style>
+    
+    <!-- Modal abonnement -->
+    <div id="TableDeMise" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="signin" style="background-color: rgb(0, 7, 28);">
+                <div class="signin__warp">
+                    <div class="signin__content" style="margin-top: 150px;">
+                        <div class="signin__logo">
+                            <a href="#"><img src="img/siign-in-logo.png" alt=""></a>
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore dolore
+                            magna aliqua viverra.</p>
+                        <div class="signin__form">
+                            <div class="signin__form__text">
+                                <form action="<?php echo site_url('ObjectifClientController/InsererObjectif'); ?> " method="get">
+                                    <input type="text" name="montant" >
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum porro, consequatur nulla deleniti ipsam cumque consequuntur. Veritatis veniam, laboriosam totam quia tempore esse nihil sed eveniet deleniti dolorem iusto culpa?</p>
+                                    <button type="submit" class="site-btn">valider les objectifs</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+          <script>
+            var modal = document.getElementById('TableDeMise');
+    
+            function openModal() {
+              modal.style.display = 'block';
+            }
+    
+            function closeModal() {
+              modal.style.display = 'none';
+            }
+    
+            window.onclick = function(event) {
+              if (event.target === modal) {
+                closeModal();
+              }
+            };
+          </script>
     <script>
         for (var i = 1; i <= 3; i++) {
             var agreeCheck = document.getElementById('agree-check-'+i);
@@ -124,5 +176,4 @@
     <script src="<?php echo site_url('assets/js/owl.carousel.min.js'); ?>"></script>
     <script src="<?php echo site_url('assets/js/main.js'); ?>"></script>
 </body>
-
 </html>
