@@ -8,29 +8,23 @@ VALUES
     ('Razafindramanitra', 'Sophie', 1, 'sophie.razafindramanitra@gmail.com', 0000),
     ('Rakotomalala', 'Andry', 0, 'andry.rakotomalala@gmail.com', 0000);
 
----------------------- Aliment et sport
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Riz aux légumes ', 0.4, 20000.0, 1,5,0,0);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Pâtes à la carbonara', 0.3, 20000.0, 1,0,0,0);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Steak avec frites et salade', 0.6, 20000.0, 1,70,0,0);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Pizza avec fromage', 0.8,20000.0, 300,10,30,5);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Brocoli', -0.2, 20000.0, 1,0,0,0);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Thon en conserve', -0.15, 20000.0, 1,0,70,0);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Yaourt grec sans gras', -0.1, 20000.0, 1,0,0,0);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Chou-fleur', -0.3, 20000.0, 1,0,0,0);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Blanc de poulet grillé', -0.25, 20000.0, 1,0,0,90);
-
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Avocat toast', 0.2, 10000.0, 1,0,0,0);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Lasagnes', 0.6, 30000.0, 1,20,10,2);
-INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Smoothies protéinés', 0.5, 8000.0, 1,0,0,0);
+insert into InfoUtilisateur(IdUtilisateur,Poids,Taille,adresse,telephone) 
+    value(1,70,160,'Vk II 21 bis','0320125410'),
+    value(2,50,170,'RP I 22 bis','0340124410'),
+    value(3,60,165,'HU III 12 bis','0330155410'),
+    value(4,49,150,'Vk I 20 bis','0320525310'),
+    value(5,50,180,'MPK II 21 bis','0330125510');
 
 
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Course à pied', -0.5, 30.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Natation', 0.7, 45.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Haltérophilie', 0.4, 60.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Yoga', 0.2, 60.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Cyclisme', 1, 90.0, 1);
-INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Randonnée', -1, 60.0, 1);
-insert into Sport values(null , 'basket' , -1.5 , 38 , 1);
+----------------Porte Money
+insert into PorteMoney(IdUtilisateur,ValeurMoney) value(1,0);
+insert into PorteMoney(IdUtilisateur,ValeurMoney) value(2,0);
+insert into PorteMoney(IdUtilisateur,ValeurMoney) value(3,0);
+insert into PorteMoney(IdUtilisateur,ValeurMoney) value(4,0);
+insert into PorteMoney(IdUtilisateur,ValeurMoney) value(5,0);
+
+-- --------------------Objectif
+insert into Objectif(IdObjectif,NomObjectif) value(1,'Augmenter Poids'),(2,'Diminuer Poids'),(3,'IMC');
 
 ------------------------------ Code
 INSERT INTO Code (ValeurCode, MontantCode)
@@ -51,15 +45,31 @@ VALUES
     (90134, 65000),
     (56781, 55000);
 
-----------------Porte Money
-insert into PorteMoney(IdUtilisateur,ValeurMoney) value(1,0);
-insert into PorteMoney(IdUtilisateur,ValeurMoney) value(2,0);
-insert into PorteMoney(IdUtilisateur,ValeurMoney) value(3,0);
-insert into PorteMoney(IdUtilisateur,ValeurMoney) value(4,0);
-insert into PorteMoney(IdUtilisateur,ValeurMoney) value(5,0);
+---------------------- Aliment et sport
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Riz aux légumes ', 0.4, 20000.0, 1,5,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Pâtes à la carbonara', 0.3, 20000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Steak avec frites et salade', 0.6, 20000.0, 1,70,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Pizza avec fromage', 0.8,20000.0, 300,10,30,5);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Brocoli', -0.2, 20000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Thon en conserve', -0.15, 20000.0, 1,0,70,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Yaourt grec sans gras', -0.1, 20000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Chou-fleur', -0.3, 20000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Blanc de poulet grillé', -0.25, 20000.0, 1,0,0,90);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Avocat toast', 0.2, 10000.0, 1,0,0,0);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Lasagnes', 0.6, 30000.0, 1,20,10,2);
+INSERT INTO Aliment (Nom, Poids, Montant, Duree , PourcentageViande ,PourcentagePoisson , PourcentageVolaille) VALUES ('Smoothies protéinés', 0.5, 8000.0, 1,0,0,0);
 
 
--- --------------Donnees test
+INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Course à pied', -0.5, 30.0, 1);
+INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Natation', 0.7, 45.0, 1);
+INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Haltérophilie', 0.4, 60.0, 1);
+INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Yoga', 0.2, 60.0, 1);
+INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Cyclisme', 1, 90.0, 1);
+INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Randonnée', -1, 60.0, 1);
+INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Basket', -1.5, 38, 1);
+
+
+-- --------------Donnees test 
 INSERT INTO ObjectifClient (IdClient, IdObjectif, ObjectifPoids, DateInsertion)
 VALUES
     (1, 1, 70.5, '2023-01-15 10:00:00'),
@@ -74,7 +84,6 @@ VALUES
     (1, 2, 70.8, '2023-09-05 14:00:00'),
     (1, 2, 70.8, '2023-09-05 14:00:00'),
     (1, 2, 70.8, '2023-09-05 14:00:00'),
-    
     (1, 1, 70.5, '2023-01-15 10:00:00'),
     (2, 2, 68.2, '2023-02-22 14:30:00');
 

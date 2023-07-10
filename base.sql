@@ -16,7 +16,6 @@ create table utilisateur(
     foreign key(genre) references genre(idGenre)
 );
 
-
 create table InfoUtilisateur(
     IdInfoUtilisateur int not null primary key auto_increment,
     IdUtilisateur int not null,
@@ -27,8 +26,6 @@ create table InfoUtilisateur(
     foreign key(IdUtilisateur) references  Utilisateur(IdUtilisateur)
 );
 
-insert into InfoUtilisateur(IdUtilisateur,Poids,Taille,adresse,telephone) value(1,70,160,'Vk II 21 bis','0320125410');
-
 create table PorteMoney(
     IdPorteMoney  int not null primary key auto_increment,
     IdUtilisateur int not null,
@@ -36,14 +33,10 @@ create table PorteMoney(
     foreign key(IdUtilisateur) references utilisateur(idUtilisateur)
 );
 
-insert into PorteMoney(IdUtilisateur,ValeurMoney) value(1,1000);
-
 create table Objectif(
     IdObjectif int not null primary key auto_increment,
     NomObjectif varchar(100)
 );
-
-insert into Objectif(NomObjectif) value('Augmenter Poids'),('Diminuer Poids');
 
 create table ObjectifClient(
     IdObjectifClient int not null primary key auto_increment,
@@ -103,10 +96,10 @@ create table Sport(
 -- CREATE VIEW StatClient AS 
 
 
-    SELECT Objectif.NomObjectif,count(idClient) as NombreClient,
-    DATE_FORMAT(DateInsertion, '%M') AS Mois 
-    FROM ObjectifClient 
-    join Objectif on 
-    Objectif.IdObjectif = ObjectifClient.IdObjectif GROUP BY DATE_FORMAT(DateInsertion, '%M') ,
-    Objectif.IdObjectif
-    ORDER BY MONTH(DateInsertion) ;
+    -- SELECT Objectif.NomObjectif,count(idClient) as NombreClient,
+    -- DATE_FORMAT(DateInsertion, '%M') AS Mois 
+    -- FROM ObjectifClient 
+    -- join Objectif on 
+    -- Objectif.IdObjectif = ObjectifClient.IdObjectif GROUP BY DATE_FORMAT(DateInsertion, '%M') ,
+    -- Objectif.IdObjectif
+    -- ORDER BY MONTH(DateInsertion) ;
