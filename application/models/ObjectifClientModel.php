@@ -27,6 +27,11 @@
                         }else{
                             throw new Exception('Poids trop basse pour maigrir de telle kilo');
                         }
+                    }else if($IdObjectif == 3){
+                        $this->load->model('AdminModel');
+                        $PoidsCalculer = $this->AdminModel->IMCIdeal($IdClient);
+                        $sql1 = "Insert into ObjectifClient(IdClient,IdObjectif,ObjectifPoids) value(?,?,?)";
+                        $this->db->query($sql1,array($IdClient,$IdObjectif,$PoidsCalculer));
                     }else{
                         $sql1 = "Insert into ObjectifClient(IdClient,IdObjectif,ObjectifPoids) value(?,?,?)";
                         $this->db->query($sql1,array($IdClient,$IdObjectif,$Poids));
