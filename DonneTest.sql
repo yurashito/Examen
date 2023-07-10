@@ -30,6 +30,7 @@ INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Haltérophilie', 0.4, 6
 INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Yoga', 0.2, 60.0, 1);
 INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Cyclisme', 1, 90.0, 1);
 INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Randonnée', -1, 60.0, 1);
+insert into Sport values(null , 'basket' , -1.5 , 38 , 1);
 
 ------------------------------ Code
 INSERT INTO Code (ValeurCode, MontantCode)

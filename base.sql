@@ -76,7 +76,7 @@ create table Aliment(
     Nom varchar(30),
     Poids double,
     Montant double,
-    duree double 
+    duree double default 1
 );
 
 create table Sport(
@@ -84,10 +84,8 @@ create table Sport(
     Nom varchar(20),
     Poids double ,
     Duree double,
-    NbrJours double
+    NbrJours double default 1
 );
-
-insert into Sport values(null , 'basket' , -1.5 , 38 , 1);
 
 
 -- -------------------------View
