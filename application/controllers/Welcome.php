@@ -21,7 +21,35 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('welcome_message');
+
+	}	
+	public function  insertionInformation(){
+		$data = array();
+        $idUtilisateur = 1;
+		$poids= $_GET['poids'];
+		$taille= $_GET['taille'];
+		$adresse=$_GET['adresse'];
+		$tel= $_GET['telephone'];
+        $this->utilisateur->insertionInfo($idUtilisateur , $poids , $taille , $adresse , $tel);
+		$this->load->view('afficheLogin' , $data);
+	}
+	
+    public function inscription(){
+        $data = array();
+        $nom="fehizoro" ;
+        $prenom="Rampanjato";
+        $genre= 1;
+        $mail="Rams@gmail.com";
+        $mdp="ramskely";
+        $this->utilisateur->insertionInscription($nom , $prenom , $genre ,$mail , $mdp);
+		$this->load->view('afficheLogin' , $data);   
+    }
+	public function afficheProgramme(){
 		
-	}		
+		$resultat = $this-> programme->selectRegimeAdequat(1);
+		// echo $resultat ;
+		$this->load->view('afficheProgramme');
+	}
+
 
 }
