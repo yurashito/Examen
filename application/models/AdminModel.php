@@ -65,6 +65,37 @@
             $sql = "UPDATE Sport SET Nom = ? , Poids = ? , Duree = ? where Id=".$IdSport;
             $this->db->query($sql,array($Nom,$Poids,$Durre)); 
         }
+
+//------------------------------IMC
+        public function SelectInfoUtilisateur($Id){
+            $sql = $this->db->query("SELECT * FROM InfoUtilisateur where IdUtilisateur=".$Id." order by IdInfoUtilisateur desc limit 1");
+            $tableau = $sql->result_array();
+            return $tableau;
+        }
+
+        public function IMCUtilisateur($Id){
+            $tab = $this->SelectInfoUtilisateur($Id);
+            if($tab != null){
+                $Poids = $tab[0]['Poids'];
+                $Taille = $tab[0]['Taille']/100;
+                $IMC = $Poids /($Taille*$Taille);
+                $imcArrondi = round($IMC, 2);
+                return $imcArrondi;
+            }
+            return -1;
+        }
+
+        public function IMCIdeal($Id){
+            $Info = $this->SelectInfoUtilisateur($Id);
+            $ImcAvant = $this->IMCUtilisateur($Id);
+            $IMCMety = 19 *(($Info[0]['Taille']/100)*($Info[0]['Taille']/100));
+            if($ImcAvant != -1){
+                $ImAnazy = $ImcAvant * (($Info[0]['Taille']/100)*($Info[0]['Taille']/100));
+                $ImcFarany = $IMCMety - $ImAnazy;
+                return $ImcFarany;
+            }
+            return null;
+        }
         
     }
 ?>
