@@ -12,4 +12,11 @@ if(!defined('BASEPATH'))  exit('No direct script access allowed');
         $sql=sprintf($sql,$nom , $prenom , $genre ,$mail , $mdp);
         $this->db->query($sql);
     }
+
+    public function selectOneUtilisateur($idUtilisateur){
+        $sql=" select * from  utilisateur  where idUtilisateur = %s";
+        $sql=sprintf($sql,$idUtilisateur);
+        $data = $this->db->query($sql)->result_array();
+        return $data;
+    }
 }

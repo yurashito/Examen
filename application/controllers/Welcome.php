@@ -20,7 +20,12 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data = $this->suggestionModel->getInfoUtilisateur(1);
+        $donnees = $this->suggestionModel->grouperDonnees($data);
+        echo '<pre>';
+        echo print_r($donnees);
+        echo '</pre>';
+		// $this->load->view('welcome_message');
 
 	}	
 	public function  insertionInformation(){
@@ -44,12 +49,57 @@ class Welcome extends CI_Controller {
         $this->utilisateur->insertionInscription($nom , $prenom , $genre ,$mail , $mdp);
 		$this->load->view('afficheLogin' , $data);   
     }
+
 	public function afficheProgramme(){
-		
-		$resultat = $this-> programme->selectRegimeAdequat(1);
-		// echo $resultat ;
-		$this->load->view('afficheProgramme');
+		$resultat= array();
+		$resultat['regime']= $this-> programme->selectRegimeAdequat1(-10);
+		$this->load->view('afficheProgramme' , $resultat);
+	}
+	
+	public function insererProgramme(){
+		$idObjectif=null;
+		$data = array();
+		if($_GET['nom'] != null && $_GET['idObjectif']!= null){
+			$nom= $_GET['nom'];
+			$idObjectif= $_GET['idObjectif'];
+			$data['Aliment'] =$this->aliment->select($idObjectif) ;
+			$data['Sport'] =$this->sport->select($idObjectif) ;
+			$this->programme->insertionProgramme($nom , $idObjectif);
+			$data['IdProgramme']= $this->programme-> getDernierProgramme();
+		}
+		$this->load->view('pageInsertionProgrammeAliment' , $data);
 	}
 
+	
+	public function pageInsertionProgramme(){
+		$resultat = array();
+		$resultat['objectif']= $this->objectifClientModel->SelectObjectif();
+		$this->load->view('pageInsertionProgramme' , $resultat );
+	}
+	
+	public function RecupererLesValeurChecker(){
+		$lesValeurs= $_GET['aliment'];
+		$sport= $_GET['sport'];
+		$idProgramme= $_GET['idProgramme'];
+		for($i=0 ; $i<count($lesValeurs) ; $i++){
+			echo $lesValeurs[$i];
+			$this->programme->insertionAliment($idProgramme , $lesValeurs[$i]);
+		}
+		for($i=0 ; $i<count($sport) ; $i++){
+			echo $sport[$i];
+			$this->programme->insertionSport($idProgramme , $sport[$i]);
+		}
+
+		// $AlimentPourProgramme= $this->programme->selectProgrammeSportParIdProgramme(2);
+		// echo "<br>".count($AlimentPourProgramme['Sport'])."<br>";
+		// for($i=0 ; $i<count($AlimentPourProgramme['Sport']) ; $i++){
+		// 	echo $AlimentPourProgramme['Sport'][$i]['Nom']."----------<br>";
+		// }
+		// echo "Poids : ".$AlimentPourProgramme['Poids']."<br>";
+		// echo "Duree : ".$AlimentPourProgramme['Duree']."<br>";
+
+
+		$this->load->view('valeur');
+	}
 
 }

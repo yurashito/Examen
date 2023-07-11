@@ -1,5 +1,3 @@
-create database regime;
-use regime;
 
 create table utilisateur(
     idUtilisateur int not null auto_increment primary key ,
@@ -20,6 +18,7 @@ create table InfoUtilisateur(
     telephone varchar(30),
     foreign key(IdUtilisateur) references  Utilisateur(IdUtilisateur)
 );
+
 insert into InfoUtilisateur values ( null, 1 , 49 , 150 , 'lot IVP23Ebis antsalovana' , '0342613411' );
 
 create table Objectif(
@@ -72,11 +71,36 @@ INSERT INTO Sport (Nom, Poids, Duree, NbrJours) VALUES ('Cyclisme', -1, 90.0, 1)
 INSERT INTO Sport values(null , 'basket' , -1.5 , 38 , 1);
 
 
-create or replace view  regimePourDiminuer as select sport.Id as idSport,sport.Nom as NomSport , sport.Poids as poidsSport , sport.duree  as dureeSport, aliment.Id as IdAliment , aliment.Nom  as nomAliement, aliment.Poids as poidsAliment , aliment.Duree as dureeAliment , NbrJours, sport.Poids+ aliment.Poids as PoidsTotal  from aliment cross join sport 
-where sport.poids<0 and aliment.poids<0 order by PoidsTotal desc;
+create table Programme(
+    IdProgramme int  not null primary key auto_increment,
+    NomProgramme varchar(20),
+    IdObjectif int not null , 
+    foreign key(IdObjectif) references Objectif(IdObjectif)
+);
+insert into Programme values(null , 'Programme1');
 
-create or replace view  regimePourAugmenter as select sport.Id as idSport,sport.Nom as NomSport , sport.Poids as poidsSport , sport.duree  as dureeSport, aliment.Id as IdAliment , aliment.Nom  as nomAliement, aliment.Poids as poidsAliment , aliment.Duree as dureeAliment , NbrJours, sport.Poids+ aliment.Poids as PoidsTotal  from aliment cross join sport 
-where sport.poids>0 and aliment.poids>0 
-group by nomAliement
-order by PoidsTotal desc ;
+
+create table ProgrammeAlimentation(
+     IdProgramme int  not null ,
+     IdAlimentation int ,
+     foreign key(IdProgramme) references Programme(IdProgramme),
+     foreign key(IdAlimentation) references Aliment(Id)
+);
+
+create table ProgrammeSport(
+     IdProgramme int  not null ,
+     IdSport int ,
+     foreign key(IdProgramme) references Programme(IdProgramme),
+     foreign key(IdSport) references Sport(Id)
+);
+
+
+
+-- create or replace view  regimePourDiminuer as select sport.Id as idSport,sport.Nom as NomSport , sport.Poids as poidsSport , sport.duree  as dureeSport, aliment.Id as IdAliment , aliment.Nom  as nomAliement, aliment.Poids as poidsAliment , aliment.Duree as dureeAliment , NbrJours, sport.Poids+ aliment.Poids as PoidsTotal  , Montant from aliment cross join sport 
+-- where sport.poids<0 and aliment.poids<0 order by PoidsTotal desc;
+
+-- create or replace view  regimePourAugmenter as select sport.Id as idSport,sport.Nom as NomSport , sport.Poids as poidsSport , sport.duree  as dureeSport, aliment.Id as IdAliment , aliment.Nom  as nomAliement, aliment.Poids as poidsAliment , aliment.Duree as dureeAliment , NbrJours, sport.Poids+ aliment.Poids as PoidsTotal , Montant from aliment cross join sport 
+-- where sport.poids>0 and aliment.poids>0 
+-- group by nomAliement
+-- order by PoidsTotal desc ;
 
