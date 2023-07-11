@@ -21,7 +21,7 @@
         <div class="signin__warp">
             <div class="signin__content" style="margin-top: 150px;">
                 <div class="signin__logo">
-                    <a href="#"><img src="img/siign-in-logo.png" alt=""></a>
+                    <a href="#"><img src="<?php echo site_url("assets/logoComplet.png"); ?>" alt=""></a>
                 </div>
                 <p>Afficher code</p>
                 <div class="signin__form">

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo site_url('assets/style_login.css'); ?>">
+    
     <title>SportsZone</title>
 </head>
 <body>

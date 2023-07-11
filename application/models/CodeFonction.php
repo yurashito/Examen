@@ -29,7 +29,7 @@
             $ArgentActuelle = $Client->ValeurMoney;
             if($Code!=null){
                 try {
-                    if($Code->Identifiant == null ){
+                    if($Code->Identifiant == 0 ){
                         $sql = "UPDATE Code SET Identifiant = 10 where IdCode=".$Code->IdCode;
                         $sql1 = "Insert into CodeAttente(IdUtilisateur,IdCode)  value(?,?)";
                         $this->db->query($sql);

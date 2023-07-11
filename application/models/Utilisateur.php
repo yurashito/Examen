@@ -18,4 +18,9 @@ if(!defined('BASEPATH'))  exit('No direct script access allowed');
         $tableau = $sql->result_array();
         return $tableau;
     }
+    public function getDernierUtiliseur(){
+        $sql = $this->db->query("SELECT idUtilisateur FROM utilisateur order by idUtilisateur desc");
+        $tableau = $sql->row()->idUtilisateur;
+        return $tableau;
+    }
 }

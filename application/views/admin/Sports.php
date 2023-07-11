@@ -6,7 +6,7 @@
                     <div class="col-12 grid-margin">
                         <div class="card">
                             <div class="card-body" style="text-align: center;">
-                                <form class="form-sample" action="<?php echo site_url('adminController/InsererAliment') ?>" method="get">
+                                <form class="form-sample" action="<?php echo site_url('adminController/InsererSport') ?>" method="get">
                                     <h2>Listes des Sports actuelle :</h2>
                                     <p><h4>Ajouter nouveau actuelle</h4></p>
                                     <div class="row">

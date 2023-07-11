@@ -62,8 +62,7 @@
                                         <td><?php echo $aliment['duree'] ?></td>
                                         <td>
                                             <a style="margin-left: -30px;" onclick="openModif(<?php echo $index; ?>)"><i class="icon-file  menu-icon "></i></a>
-                                            <!-- <button onclick="openModif(<?php echo $index; ?>)"><i class="icon-file  menu-icon "></i></button> -->
-                                            <a href="<?php echo site_url("AdminController/MoidifierAliment") ?>?IdAliment=<?php echo $aliment['Id'] ?>"><i class="icon-trash  menu-icon "></i></a></td>
+                                            <a href="<?php echo site_url("AdminController/SupprimerAliment") ?>?IdAliment=<?php echo $aliment['Id'] ?>"><i class="icon-trash  menu-icon "></i></a></td>
                                     </tr>
                                 <?php } ?>
                                 </tbody>

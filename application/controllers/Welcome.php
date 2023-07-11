@@ -31,15 +31,15 @@ class Welcome extends CI_Controller {
 		$this->load->view('Inscription');
 	}		
 	public function  insertionInformation(){
-		// $valeur = $this->session->userdata('idUtilisateur');
-		// echo '<pre>';
-        // echo $valeur;
-		// echo '</pre>';
-		$poids= $_POST['poids'];
-		$taille= $_POST['taille'];
-		$adresse=$_POST['adresse'];
-		$tel= $_POST['numero'];
-        $this->utilisateur->insertionInfo($idUtilisateur , $poids , $taille , $adresse , $tel);
+		$valeur = $this->session->userdata('idUtilisateur');
+		echo '<pre>';
+        echo $valeur;
+		echo '</pre>';
+		$poids= $_GET['poids'];
+		$taille= $_GET['taille'];
+		$adresse=$_GET['adresse'];
+		$tel= $_GET['numero'];
+        $this->utilisateur->insertionInfo($valeur['IdUtilisateur'] , $poids , $taille , $adresse , $tel);
 		$this->load->view('choixDuSport');
 	}
 
@@ -62,6 +62,8 @@ class Welcome extends CI_Controller {
         $mail=$_POST['mail'];
         $mdp=$_POST['passConf'];
         $this->utilisateur->insertionInscription($nom , $prenom , $genre ,$mail , $mdp);
+		$id = $this->utilisateur->getDernierUtiliseur();
+		$this->session->set_userdata('idUtilisateur', $id);
 		$this->objet();
     }
 

@@ -31,17 +31,16 @@
 </style>
 
 <body class="fixed-position">
-    Page Preloder
-    <!-- <div id="preloder">
+    <div id="preloder">
         <div class="loader"></div>
-    </div> -->
+    </div>
 
     <!-- Sign In Section Begin -->
-    <div class="signin" style="background-color: rgb(0, 7, 28);">
+    <div class="signin" style="background-color: black;">
         <div class="signin__warp">
             <div class="signin__content" style="margin-top: 150px;">
                 <div class="signin__logo">
-                    <a href="#"><img src="img/siign-in-logo.png" alt=""></a>
+                    <a href="#"><img src="<?php echo site_url("assets/logo_lettre.png"); ?>" alt="" style="heigth: 100px;"></a>
                 </div>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore dolore
                     magna aliqua viverra.</p>
@@ -62,11 +61,11 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="signin__form__text">
-                                <form action="#">
-                                    <input type="text" placeholder="Poids">
-                                    <input type="text" placeholder="Taille">
-                                    <input type="text" placeholder="numero de telephone">
-                                    <input type="text" placeholder="Adresses">
+                                <form action="<?php echo site_url("welcome/insertionInformation");?>" method="get">
+                                    <input type="text" name="poids" placeholder="Poids">
+                                    <input type="text" name="taille" placeholder="Taille">
+                                    <input type="text" name="numero" placeholder="numero de telephone">
+                                    <input type="text" name="adresse" placeholder="Adresses">
                                     
                                     <button type="submit" class="site-btn">valider</button>
                                 </form>

@@ -26,6 +26,7 @@ class CodeController extends CI_Controller {
 	public function Valider(){
 		$this->load->model('CodeFonction');
 		$this->CodeFonction->ConfirmationCode($_GET['IdClient'],$_GET['ValeurCode']);
+		$this->ValiderCode();
 	}
 
 
