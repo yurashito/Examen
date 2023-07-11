@@ -34,6 +34,8 @@
             </p>
             <a href="<?php echo site_url('welcome/insertion'); ?>" class="btn-link connexion" style="color: #198EF5;font-weight: bold;">S' inscrire</a>         
         </div>
+
+        
+        
+        <a href="<?php echo site_url('adminController/index'); ?>" class="btn-link connexion" style="color: #198EF5;font-weight: bold;">admin</a>         
       </div>
-</body>
-</html>

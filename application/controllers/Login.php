@@ -15,8 +15,8 @@ class Login extends CI_Controller {
         $mdp=$_POST['pass'];
 		$this->load->model("traitrementLogin");
         $id=$this->traitrementLogin->authentificationUtilisateur($nom , $mdp);
-        $valeur =$user = $this->utilisateur->selectOneUser($nom);
-        $this->session->set_userdata('idUtilisateur', $valeur[0]);
+        $valeur = $this->utilisateur->selectOneUser($nom);
+        $this->session->set_userdata('idUtilisateur', $valeur);
 		$this->load->view('afficheLogin');
 	}		
 }

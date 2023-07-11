@@ -62,11 +62,11 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="tabs-1" role="tabpanel">
                             <div class="signin__form__text">
-                                <form action="<?php echo site_url('welcome/insertionInformation'); ?>" method="post">
-                                    <input type="text" name="poids" placeholder="Poids">
-                                    <input type="text" name="taille" placeholder="Taille">
-                                    <input type="text" name="numero" placeholder="numero de telephone">
-                                    <input type="text" name="adresse" placeholder="Adresses">
+                                <form action="#">
+                                    <input type="text" placeholder="Poids">
+                                    <input type="text" placeholder="Taille">
+                                    <input type="text" placeholder="numero de telephone">
+                                    <input type="text" placeholder="Adresses">
                                     
                                     <button type="submit" class="site-btn">valider</button>
                                 </form>
@@ -78,10 +78,11 @@
                                     <div class="row">
                                     <?php foreach($Objectif as $Object) { ?>
                                         <h6 class="col-6">
-                                            <input style="width: 8%; height: 15px;" type="radio" name="IdObjectif" id="sign-agree-check" value="<?php echo $Object['IdObjectif']; ?>">
-                                            <?php echo $Object['NomObjectif']; ?>
+                                            <input style="width: 8%; height: 15px;" value="<?php echo $Object['IdObjectif'] ?>" type="radio" name="IdObjectif" id="sign-agree-check">
+                                            <?php echo $Object['NomObjectif'] ?>
                                         </h6">
-                                        <?php } ?>                               
+                                        <?php } ?>
+                                                                      
                                     </div>
                                     <div class="row">
                                         <h6 class="col-12">

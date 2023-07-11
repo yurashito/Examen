@@ -13,7 +13,7 @@ class ObjectifClientController extends CI_Controller {
 
     public function InsererObjectif(){
         $this->load->model('ObjectifClientModel');
-        echo $_GET['IdObjectif'];
         $this->ObjectifClientModel->InsererObjectif(1,$_GET['IdObjectif'],$_GET['Valeur']);
+        // $this->index();
     }
 }

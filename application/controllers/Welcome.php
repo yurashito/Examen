@@ -31,8 +31,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('Inscription');
 	}		
 	public function  insertionInformation(){
-		$valeur = $this->session->userdata('idUtilisateur');
-        $idUtilisateur = $valeur['IdUtilisateur'];
+		// $valeur = $this->session->userdata('idUtilisateur');
+		// echo '<pre>';
+        // echo $valeur;
+		// echo '</pre>';
 		$poids= $_POST['poids'];
 		$taille= $_POST['taille'];
 		$adresse=$_POST['adresse'];
@@ -40,20 +42,40 @@ class Welcome extends CI_Controller {
         $this->utilisateur->insertionInfo($idUtilisateur , $poids , $taille , $adresse , $tel);
 		$this->load->view('choixDuSport');
 	}
+
+	public function  pageAdmin(){
+		$data = array();
+		if($_GET['page']!=null){
+			$data['lien']=$_GET['page'];
+			if($_GET['page']=="listeAliment"){
+				$data['Aliment']= $this->load->model('AdminModel');
+			}
+		}
+		$this->load->view('admin/index' , $data);
+	}
+	
 	
     public function inscription(){
-
-		$data = array();
         $nom= $_POST['nom'];
         $prenom=$_POST['prenom'];
         $genre= $_POST['genre'];
         $mail=$_POST['mail'];
         $mdp=$_POST['passConf'];
         $this->utilisateur->insertionInscription($nom , $prenom , $genre ,$mail , $mdp);
-		$user = $this->utilisateur->selectOneUser($nom);
-		$data['user'] = $user[0];
-		$this->session->set_userdata('idUtilisateur', $data);
-		$this->load->view('infoUtilisateur');   
+		$this->objet();
+    }
+
+	public function objet()
+	{
+        $this->load->model('ObjectifClientModel');
+		$Tab['Objectif'] = $this->ObjectifClientModel->SelectObjectif();
+		$this->load->view('infoUtilisateur',$Tab);
+	}	
+
+    public function InsererObjectif(){
+        $this->load->model('ObjectifClientModel');
+        echo $_GET['IdObjectif'];
+        $this->ObjectifClientModel->InsererObjectif(1,$_GET['IdObjectif'],$_GET['Valeur']);
     }
 	public function afficheProgramme(){
 		

@@ -11,24 +11,30 @@
         }
 
         function InfoUtilisateurFinal($IdUtilisateur){
-            $sql = $this->db->query("SELECT * FROM infoUtilisateur where IdUtilisateur =".$IdUtilisateur." order by IdInfoUtilisateur desc limit 1");
+            $sql = $this->db->query("SELECT * FROM InfoUtilisateur where IdUtilisateur =".$IdUtilisateur." order by IdInfoUtilisateur desc limit 1");
             $tableau = $sql->result_array();
             return $tableau;
         }
 
         function InsererObjectif($IdClient,$IdObjectif,$Poids){
-            echo $this->InfoUtilisateurFinal($IdClient);
+            echo "<pre>";
+            echo print_r($this->InfoUtilisateurFinal($IdClient));
+            echo "</pre>";
             // $PoidsUser = $this->InfoUtilisateurFinal($IdClient)[0]['Poids'];
-
             // try{
             //     if($Poids > 0){
             //         if($IdObjectif == 2){
-            //             if($Poids > $Poids+30){
+            //             if($Poids < $Poids+30){
             //                 $sql1 = "Insert into ObjectifClient(IdClient,IdObjectif,ObjectifPoids) value(?,?,?)";
             //                 $this->db->query($sql1,array($IdClient,$IdObjectif,$Poids));
             //             }else{
             //                 throw new Exception('Poids trop basse pour maigrir de telle kilo');
             //             }
+            //         }else if($IdObjectif == 3){
+            //             $this->load->model('AdminModel');
+            //             $PoidsCalculer = $this->AdminModel->IMCIdeal($IdClient);
+            //             $sql1 = "Insert into ObjectifClient(IdClient,IdObjectif,ObjectifPoids) value(?,?,?)";
+            //             $this->db->query($sql1,array($IdClient,$IdObjectif,$PoidsCalculer));
             //         }else{
             //             $sql1 = "Insert into ObjectifClient(IdClient,IdObjectif,ObjectifPoids) value(?,?,?)";
             //             $this->db->query($sql1,array($IdClient,$IdObjectif,$Poids));
